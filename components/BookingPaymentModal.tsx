@@ -134,6 +134,7 @@ function InnerPayment({ bookingId, expiresAt, onClose, onSuccess }: Omit<Props, 
  */
 export default function BookingPaymentModal({ bookingId, clientSecret, expiresAt, onClose, onSuccess }: Props) {
   const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
+  console.log("Stripe key:", process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
   // Lazily initialize Stripe.js once a publishable key is available
   const stripePromise = useMemo(() => (publishableKey ? loadStripe(publishableKey) : null), [publishableKey]);
 
